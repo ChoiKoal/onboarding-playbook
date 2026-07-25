@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hereby Med 병원 온보딩 플레이북 v1.0</title>
+<style>
+  :root {
+    --primary: #1a5c9e; --primary-light: #e8f1fa; --accent: #e67e22;
+    --ok: #27ae60; --warn: #c0392b; --ink: #222; --muted: #667;
+    --line: #d8dee6; --bg-soft: #f6f8fb;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+         color: var(--ink); line-height: 1.65; margin: 0; background: #fff; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 32px 80px; }
+  header.doc { border-bottom: 3px solid var(--primary); padding-bottom: 20px; margin-bottom: 32px; }
+  header.doc h1 { font-size: 26px; margin: 0 0 6px; color: var(--primary); }
+  header.doc .sub { color: var(--muted); font-size: 14px; }
+  h2 { font-size: 20px; color: var(--primary); border-left: 5px solid var(--primary);
+       padding-left: 12px; margin: 44px 0 14px; }
+  h3 { font-size: 16px; margin: 24px 0 8px; }
+  p { margin: 8px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--primary-light); color: var(--primary); font-weight: 700; white-space: nowrap; }
+  tr:nth-child(even) td { background: var(--bg-soft); }
+  .phase { display: flex; gap: 0; margin: 20px 0 28px; }
+  .phase div { flex: 1; text-align: center; padding: 10px 4px; font-size: 13px; font-weight: 700;
+               background: var(--primary-light); color: var(--primary); position: relative; border: 1px solid #fff; }
+  .phase div small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
+  .phase div.hot { background: var(--primary); color: #fff; }
+  .phase div.hot small { color: #cfe2f5; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-right: 4px; }
+  .tag.h { background: #fdeeee; color: var(--warn); }
+  .tag.f { background: var(--primary-light); color: var(--primary); }
+  .tag.p { background: #eef8f0; color: var(--ok); }
+  .callout { border-left: 4px solid var(--accent); background: #fdf6ee; padding: 10px 14px; margin: 14px 0; font-size: 14px; }
+  .callout.red { border-color: var(--warn); background: #fdf0ef; }
+  .callout b:first-child { color: var(--accent); }
+  .callout.red b:first-child { color: var(--warn); }
+  ul, ol { margin: 6px 0 12px; padding-left: 22px; }
+  li { margin: 3px 0; }
+  .check li { list-style: none; position: relative; padding-left: 4px; }
+  .check li::before { content: "☐"; position: absolute; left: -18px; color: var(--primary); }
+  .lessons td:first-child { font-weight: 700; white-space: nowrap; }
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: 12px; }
+  @media print { .wrap { padding: 0; } h2 { page-break-after: avoid; } table { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <h1>Hereby Med 병원 온보딩 플레이북 <span style="font-size:15px;color:var(--muted)">v1.0</span></h1>
+  <div class="sub">신규 병원 도입 표준 절차 — 계약부터 전 직원 가동·안정화까지 · 작성: KOAL (PM) · 2026-07-25 · 근거: 1호 도입 병원 실사례(2026.07)</div>
+</header>
+
+<p><b>목적.</b> 병원 1곳의 Hereby Med 도입을 <b>예측 가능한 4~6주 절차</b>로 표준화한다. A병원(1호 도입, 직원 약 300명 규모)에서 검증된 순서·체크리스트·역할 분담·주의점을 담았다. 목표는 "도입 3개월 → 4~6주", 그리고 30~50개 병원 확장 시에도 같은 품질로 반복하는 것이다.</p>
+
+<h2>0. 표준 타임라인 (D = 전 직원 가동일)</h2>
+<div class="phase">
+  <div>P0 계약·킥오프<small>D-30 ~ D-21</small></div>
+  <div>P1 데이터 수집<small>D-21 ~ D-14</small></div>
+  <div class="hot">P2 초기 세팅<small>D-14 ~ D-7</small></div>
+  <div>P3 실무진 검증<small>D-7 ~ D-1</small></div>
+  <div>P4 전 직원 전파<small>D ~ D+7</small></div>
+  <div>P5 안정화<small>D+7 ~ D+30</small></div>
+</div>
+<p style="font-size:13px;color:var(--muted)">A병원 실측: 실무진 시연(7/21) → 수정본 납품(7월 말) → 8월 급여 병행 테스트 → 9월 중순 전체 가동. B병원(2호) 적용: 1주차 소개 → 2주차 계약 → 3주차 데이터 투입.</p>
+
+<h2>1. Phase 0 — 계약·킥오프 (D-30~)</h2>
+<table>
+  <tr><th>항목</th><th>내용</th><th>담당</th></tr>
+  <tr><td>계약 형태 결정</td><td>초기 파트너 병원은 무거운 계약 대신 <b>MOU/업무협약</b>(피드백 최대 수집 조건 포함). 정식 과금 병원은 표준 계약(가격 정책 확정본 기준)</td><td><span class="tag p">병원</span><span class="tag f">FIG</span></td></tr>
+  <tr><td>인프라 실사 3종</td><td>① <b>출퇴근 단말</b>: 기존 연동 단말(S사)이면 재사용, 타사면 추가 개발 기간 산정 ② <b>PC 사양</b>: 10년 이상 구형 PC는 화면 로딩 저하 — OS(Win11)·연식 확인, 필요 시 교체 권고 ③ <b>네트워크/IP</b>: 출근 기록 IP 제한 사용 여부</td><td><span class="tag f">FIG</span></td></tr>
+  <tr><td>병원 측 창구 지정</td><td>실무 총괄 1인(간호부/행정) + 급여 담당 1인. 소통 채널(카톡방) 개설 및 관리자 초대</td><td><span class="tag p">병원</span></td></tr>
+  <tr><td>킥오프 미팅</td><td>전 기능 시연(관리자 웹+직원 앱) + 도입 일정 합의. <b>회의록은 K/O/D/A 포맷</b>으로 남기고 요구사항은 백로그 인테이크(🧪)로 등록</td><td><span class="tag h">PM</span></td></tr>
+</table>
+
+<h2>2. Phase 1 — 데이터 수집 (D-21 ~ D-14)</h2>
+<p>세팅 품질은 데이터 최신성이 좌우한다. <b>수집 시점은 "세팅 직전 최신 갱신본"</b> — 미리 받아두면 입퇴사로 금방 낡는다(A병원 교훈: 8월 갱신본으로 재수집).</p>
+<h3>병원 제공 데이터 체크리스트</h3>
+<ul class="check">
+  <li><b>조직도</b> — 부서 &gt; 팀 &gt; 직군(간호사/간호조무사/요양보호사/이송지원 등) 3~4단계 트리. 시스템은 사실상 무제한 깊이 지원</li>
+  <li><b>직원 명부(엑셀)</b> — 성명·주민번호 또는 생년월일·연락처(임시비번 문자 발송용)·입사일·소속·직군·근무 그룹. 이메일은 선택(없는 직원 다수 전제)</li>
+  <li><b>급여 관리 대장(엑셀 원본)</b> — 암호 포함 원본 그대로. 시트 구조·수식·계산 관행이 세팅의 정본 원천 (1호 병원 = 47시트 워크북)</li>
+  <li><b>급여 계산 기준 문서</b> — 워크북 안의 서술형 기준("급여특이사항" 시트 등)도 반드시 포함 — 수당 환산 규칙의 유일한 원천인 경우가 많음</li>
+  <li><b>휴가 체계</b> — 사용 중인 휴가 유형 전체(시간 단위 연차 포함), 유형별 차감 규칙, "조퇴" 등 병원 고유 용어. 3교대 적용 제외 유형 명시</li>
+  <li><b>근무 유형/교대 체계</b> — 상근/3교대 구분, 병동별 듀티(D/E/N), 1일 소정근로시간(상근 8h vs 교대 12h — 반차 파생 시간이 달라짐)</li>
+  <li><b>간호인력 배치 계산 수식</b> — 직군별(간호사/조무사/요양보호사/병동지원/재활지원) × 병동별 비율 기준 (공단 신고·삭감 판정 기준)</li>
+  <li><b>계약서·문서 템플릿</b> — 근로계약서, 재직증명서 등 (전자서명 템플릿 등록용)</li>
+  <li><b>호봉표</b> — 직군별(간호부/기능직 등)</li>
+  <li><b>공휴일 운영 방침</b> — 병원 지정 휴일, 공휴일 정상 근무 처리 여부</li>
+</ul>
+<div class="callout"><b>주의.</b> 개인정보 파일은 반드시 암호화 전달(비밀번호 별도 채널). 개인명이 파일·시트명에 노출된 자료(예: 정산 시트)는 취급 주의.</div>
+
+<h2>3. Phase 2 — 초기 세팅 (D-14 ~ D-7) — FIG 주도</h2>
+<table>
+  <tr><th>순서</th><th>작업</th><th>비고</th></tr>
+  <tr><td>1</td><td>테넌트 생성 + 최초 관리자 계정 발급</td><td>플랫폼 콘솔(provisioning)</td></tr>
+  <tr><td>2</td><td>직원·조직 데이터 임포트</td><td>사번 자동생성 규칙({기관코드}{직군}{seq}), 이메일 없으면 placeholder</td></tr>
+  <tr><td>3</td><td><b>조직도 + 권한 일괄 세팅</b></td><td>권한 항목이 기능 연동이라 병원이 직접 못 함 — FIG가 세팅 후 테스트 중 조정. <b>역할 샘플 1종 먼저 확정</b> 후 복제</td></tr>
+  <tr><td>4</td><td>휴가 유형 세팅</td><td>차감 배수(종일1/반차0.5/반반차0.25/차감없음0) + 시간 단위 유형(기본 시간 프리필). 3교대 제외 등 근무 유형 제한, 병원 용어("조퇴" 미사용 등) 반영</td></tr>
+  <tr><td>5</td><td>근무 그룹·근무형태, 병동·스케줄러 세팅</td><td>직원 배정 = 근무 그룹 → 근무형태 2단계</td></tr>
+  <tr><td>6</td><td><b>급여 시트 이관 — 수식 포함</b></td><td>엑셀 구조 재현(폴더=구 시트 분할). <b>시트 간 수식 참조까지 걸린 상태로 납품</b>이 검증 가능 조건 (A병원 합의사항)</td></tr>
+  <tr><td>7</td><td>공휴일·전자서명 템플릿·공지 카테고리 등록</td><td>국가공휴일 자동 동기화 + 병원 지정 휴일</td></tr>
+</table>
+<div class="callout red"><b>게이트.</b> P2 완료 판정 = "관리 실무진이 <b>지난달 급여를 재현</b>할 수 있는 상태". 수식 미적용·근무일수 미계산 상태로 P3에 넘기면 검증이 공회전한다.</div>
+
+<h2>4. Phase 3 — 실무진 검증 (D-7 ~ D-1)</h2>
+<ul>
+  <li><b>현장 시연 미팅</b>(반나절): 전 메뉴를 실무진 눈으로 통과. 요구·버그는 그 자리에서 기록 → K/O/D/A 회의록 + 백로그 등록</li>
+  <li><b>병행 테스트</b>: 직전/당월 급여를 엑셀과 Hereby에서 <b>이중 계산해 대사</b>(A병원 = 도입 익월 급여). 급여 시트 → 근태 → 휴가 → 결재 순으로 시나리오 검증 (PM이 UAT 시나리오 제공)</li>
+  <li><b>피드백 루프</b>: 수집 → PM 스코어링 → FIG 반영. A병원 실측: 요구 13건 중 8건이 1~3일 내 반영 — 루프가 빠르므로 <b>수집 품질</b>이 병목</li>
+  <li>계정 점검: 실무진 로그인 전수 확인(A병원에서 로그인 불가 이슈 반복), 비밀번호 찾기 플로우 시연</li>
+</ul>
+
+<h2>5. Phase 4 — 전 직원 전파 (D ~ D+7)</h2>
+<table>
+  <tr><th>항목</th><th>내용</th><th>담당</th></tr>
+  <tr><td>앱 배포</td><td>앱스토어 정식 배포(약관 선결). 테스트 등록 방식 금지</td><td><span class="tag f">FIG</span></td></tr>
+  <tr><td>계정 전파</td><td>임시 비밀번호 <b>문자 발송</b> → 첫 로그인 시 변경 강제. 이메일 의존 금지(미보유 직원 다수)</td><td><span class="tag f">FIG</span><span class="tag p">병원</span></td></tr>
+  <tr><td>사전 공지</td><td>병원 내부 회의에서 도입 취지·일정 공지(실무 총괄 담당). 배포일을 병원에 미리 통보</td><td><span class="tag p">병원</span></td></tr>
+  <tr><td>AI 기대치 가이드</td><td>공지문에 명시: AI = <b>"백오피스 직원 1명 채용"</b> + 일반 직원에겐 "내 일을 도와주는 막내"(휴가원 작성 등). 만물박사 아님, 업무 국한 안내. 인당·병원 전체 <b>토큰 상한</b> 설정 상태로 오픈</td><td><span class="tag h">PM</span><span class="tag f">FIG</span></td></tr>
+  <tr><td>교육</td><td>관리자용: 급여 시트·결재·권한 운영 교육 1회. 일반 직원용: 앱 설치·출퇴근·휴가 신청 1장짜리 가이드(AI 메뉴 안내 기능 병행)</td><td><span class="tag h">PM</span></td></tr>
+</table>
+
+<h2>6. Phase 5 — 안정화 (D+7 ~ D+30)</h2>
+<ul>
+  <li><b>AI 사용 패턴 모니터링</b>(데일리): 인당 토큰·질문 유형·좋아요/싫어요. 2주 과용 시 "업무 외 자제" 어나운스 → 재관찰. 이 데이터가 가격 패키지의 근거</li>
+  <li><b>주간 피드백 정례화</b>: 병원 실무진 → PM 백로그(🧪 태그) → 주간 스코어링 → FIG 플래닝</li>
+  <li><b>첫 실전 급여 마감 배석</b>: 첫 달 급여 확정은 FIG/PM이 대기 상태로 지원 (오계산 = 신뢰 즉사)</li>
+  <li>졸업 판정: 급여 1사이클 무사고 + 결재/근태 일상 사용 + 문의 감소 → 정기 운영 모드 전환</li>
+</ul>
+
+<h2>7. 역할 분담 (RACI 요약)</h2>
+<table>
+  <tr><th>단계</th><th>병원</th><th>FIG(개발)</th><th>PM(콸/카나)</th></tr>
+  <tr><td>P0 계약·킥오프</td><td>창구 지정·인프라 정보</td><td>실사·시연</td><td><b>회의록·요구 인테이크·일정 관리</b></td></tr>
+  <tr><td>P1 데이터</td><td><b>데이터 제공(최신본)</b></td><td>수령·검증</td><td>체크리스트 관리·누락 추적</td></tr>
+  <tr><td>P2 세팅</td><td>질의 응대</td><td><b>세팅 전체</b></td><td>완료 게이트 판정(급여 재현 가능?)</td></tr>
+  <tr><td>P3 검증</td><td><b>병행 테스트 수행</b></td><td>피드백 반영</td><td>UAT 시나리오 제공·피드백 스코어링</td></tr>
+  <tr><td>P4 전파</td><td>내부 공지·교육 장소</td><td>배포·계정</td><td>가이드 문서·AI 기대치 공지문</td></tr>
+  <tr><td>P5 안정화</td><td>피드백 지속</td><td>핫픽스</td><td>모니터링 리포트·백로그 운영</td></tr>
+</table>
+
+<h2>8. 1호 병원 도입에서 배운 것 (Lessons Learned)</h2>
+<table class="lessons">
+  <tr><th>교훈</th><th>내용 → 플레이북 반영</th></tr>
+  <tr><td>3교대는 별개 세계</td><td>휴일 개념 없음(오프 수만큼 휴무), 시간 단위 연차 불가, 반차 파생 시간 상이(12h). 근태·휴가 세팅 전에 <b>교대 체계부터 파악</b> → P1 체크리스트</td></tr>
+  <tr><td>엑셀 관행이 요구사항의 원천</td><td>"작성 중/완료" 셀 색칠, 부서별 시트 분할, 퇴사자 별도 관리 등 — 엑셀 원본을 받으면 요구사항의 80%가 그 안에 있다 → 원본 워크북 필수 수집</td></tr>
+  <tr><td>수식 없는 납품은 검증 불가</td><td>실무진은 합계가 넘어가는지로 신뢰를 판단. 수식 미적용 시연은 "잘 모르겠다"로 끝남 → P2 게이트</td></tr>
+  <tr><td>이메일 없는 직원 다수</td><td>전자계약·계정 전파 모두 <b>문자(SMS) 기반</b>으로 설계 → P4</td></tr>
+  <tr><td>비밀번호 = 최대 민원</td><td>분실 민원이 관리자 업무를 잠식 — 셀프 찾기(전화번호) 플로우를 전파 전에 검증 → P3</td></tr>
+  <tr><td>공단 신고가 킬러 유스케이스</td><td>간호인력 비율(실입원 환자 수 기준)·근무표 인쇄 제출 — 요양·재활병원 공통 니즈, 세일즈 포인트로 활용 → P1 수식 수집</td></tr>
+  <tr><td>데이터는 세팅 직전에</td><td>입퇴사 변동이 잦아 미리 받은 명부는 낡는다 → P1 시점 원칙</td></tr>
+  <tr><td>대면 계약이 기본</td><td>고령 직원 비중 높음 — 전자서명은 태블릿 대면 모드 중심으로 준비 → P2 템플릿</td></tr>
+</table>
+
+<h2>9. 병원 유형별 변형</h2>
+<table>
+  <tr><th>유형</th><th>변형 포인트</th></tr>
+  <tr><td>입원 병원 (요양·재활병원형)</td><td>본 플레이북 그대로. 병동 관리·스케줄러·환자수 관리 포함</td></tr>
+  <tr><td>외래 전용 의원 (20~50명)</td><td>가입 시 "입원실 운영?" 분기 → 병동·스케줄러 제외 버전. 전담 인사 인력이 없는 곳이 많아 <b>P2 세팅 대행 비중↑</b>, 절차는 P0+P1 압축 2주 목표</td></tr>
+  <tr><td>기존 시스템 병행 병원</td><td>기존 상용 SaaS와 병행 기간 설정 — 급여 1사이클 대사 후 전환 권고</td></tr>
+</table>
+
+<footer>
+  Hereby Med 병원 온보딩 플레이북 v1.0 · 2026-07-25 · 작성 KOAL(PM) / 정리 Kana ·
+  근거: 1호 도입 병원 실사례(실무진 시연·경영 미팅 회의록, 도입 체인 사양) ·
+  차기 갱신: 2호 병원 도입 완료 후 v1.1
+</footer>
+
+</div>
+</body>
+</html>
